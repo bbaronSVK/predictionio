@@ -67,7 +67,7 @@ echo "Building binary distribution for PredictionIO $VERSION..."
 
 cd ${FWDIR}
 set -x
-sbt/sbt "${JAVA_PROPS[@]}" clean
+sbt/sbt -sbt-launch-repo https://repo1.maven.org/maven2 "${JAVA_PROPS[@]}" clean
 sbt/sbt "${JAVA_PROPS[@]}" printBuildInfo
 sbt/sbt "${JAVA_PROPS[@]}" publishLocal assembly storage/publishLocal storage/assembly
 sbt/sbt "${JAVA_PROPS[@]}" assembly/clean assembly/universal:packageBin assembly/universal:packageZipTarball
